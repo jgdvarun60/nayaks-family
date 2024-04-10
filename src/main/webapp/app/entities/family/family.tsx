@@ -86,15 +86,6 @@ export const Family = () => {
                 <th className="hand" onClick={sort('id')}>
                   ID <FontAwesomeIcon icon={getSortIconByFieldName('id')} />
                 </th>
-                <th className="hand" onClick={sort('name')}>
-                  Name <FontAwesomeIcon icon={getSortIconByFieldName('name')} />
-                </th>
-                <th className="hand" onClick={sort('motherMaidenName')}>
-                  Mother Maiden Name <FontAwesomeIcon icon={getSortIconByFieldName('motherMaidenName')} />
-                </th>
-                <th className="hand" onClick={sort('marriageDate')}>
-                  Marriage Date <FontAwesomeIcon icon={getSortIconByFieldName('marriageDate')} />
-                </th>
                 <th className="hand" onClick={sort('familyPhoto')}>
                   Family Photo <FontAwesomeIcon icon={getSortIconByFieldName('familyPhoto')} />
                 </th>
@@ -103,6 +94,9 @@ export const Family = () => {
                 </th>
                 <th>
                   Mother <FontAwesomeIcon icon="sort" />
+                </th>
+                <th className="hand" onClick={sort('marriageDate')}>
+                  Marriage Date <FontAwesomeIcon icon={getSortIconByFieldName('marriageDate')} />
                 </th>
                 <th />
               </tr>
@@ -115,9 +109,6 @@ export const Family = () => {
                       {family.id}
                     </Button>
                   </td>
-                  <td>{family.name}</td>
-                  <td>{family.motherMaidenName}</td>
-                  <td>{family.marriageDate ? <TextFormat type="date" value={family.marriageDate} format={APP_DATE_FORMAT} /> : null}</td>
                   <td>
                     {family.familyPhoto ? (
                       <div>
@@ -127,14 +118,12 @@ export const Family = () => {
                             &nbsp;
                           </a>
                         ) : null}
-                        <span>
-                          {family.familyPhotoContentType}, {byteSize(family.familyPhoto)}
-                        </span>
                       </div>
                     ) : null}
                   </td>
                   <td>{family.father ? <Link to={`/person/${family.father.id}`}>{family.father.name}</Link> : ''}</td>
                   <td>{family.mother ? <Link to={`/person/${family.mother.id}`}>{family.mother.name}</Link> : ''}</td>
+                  <td>{family.marriageDate ? <TextFormat type="date" value={family.marriageDate} format={APP_DATE_FORMAT} /> : null}</td>
                   <td className="text-end">
                     <div className="btn-group flex-btn-group-container">
                       <Button tag={Link} to={`/family/${family.id}`} color="info" size="sm" data-cy="entityDetailsButton">
