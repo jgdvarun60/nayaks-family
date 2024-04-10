@@ -123,21 +123,25 @@ export const FamilyUpdate = () => {
               <ValidatedField id="family-father" name="father" data-cy="father" label="Father" type="select">
                 <option value="" key="0" />
                 {people
-                  ? people.map(otherEntity => (
-                      <option value={otherEntity.id} key={otherEntity.id}>
-                        {otherEntity.name}
-                      </option>
-                    ))
+                  ? people
+                      .filter(p => p.gender === 'MALE')
+                      .map(otherEntity => (
+                        <option value={otherEntity.id} key={otherEntity.id}>
+                          {otherEntity.name}
+                        </option>
+                      ))
                   : null}
               </ValidatedField>
               <ValidatedField id="family-mother" name="mother" data-cy="mother" label="Mother" type="select">
                 <option value="" key="0" />
                 {people
-                  ? people.map(otherEntity => (
-                      <option value={otherEntity.id} key={otherEntity.id}>
-                        {otherEntity.name}
-                      </option>
-                    ))
+                  ? people
+                      .filter(p => p.gender === 'FEMALE')
+                      .map(otherEntity => (
+                        <option value={otherEntity.id} key={otherEntity.id}>
+                          {otherEntity.name}
+                        </option>
+                      ))
                   : null}
               </ValidatedField>
               <Button tag={Link} id="cancel-save" data-cy="entityCreateCancelButton" to="/family" replace color="info">
