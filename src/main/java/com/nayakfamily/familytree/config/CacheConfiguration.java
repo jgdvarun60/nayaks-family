@@ -50,6 +50,9 @@ public class CacheConfiguration {
             createCache(cm, com.nayakfamily.familytree.domain.User.class.getName());
             createCache(cm, com.nayakfamily.familytree.domain.Authority.class.getName());
             createCache(cm, com.nayakfamily.familytree.domain.User.class.getName() + ".authorities");
+            createCache(cm, com.nayakfamily.familytree.domain.Person.class.getName());
+            createCache(cm, com.nayakfamily.familytree.domain.Family.class.getName());
+            createCache(cm, com.nayakfamily.familytree.domain.Family.class.getName() + ".childrens");
             // jhipster-needle-ehcache-add-entry
         };
     }

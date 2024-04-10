@@ -1,0 +1,50 @@
+{
+  "annotations": {
+    "changelogDate": "20240410172900"
+  },
+  "applications": "*",
+  "fields": [
+    {
+      "fieldName": "srNo",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "motherMaidenName",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "marriageDate",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "familyPhoto",
+      "fieldType": "byte[]",
+      "fieldTypeBlobContent": "image"
+    }
+  ],
+  "name": "Family",
+  "relationships": [
+    {
+      "otherEntityField": "name",
+      "otherEntityName": "person",
+      "relationshipName": "childrens",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityField": "name",
+      "otherEntityName": "person",
+      "relationshipName": "father",
+      "relationshipSide": "left",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityField": "name",
+      "otherEntityName": "person",
+      "relationshipName": "mother",
+      "relationshipSide": "left",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "searchEngine": "no"
+}
