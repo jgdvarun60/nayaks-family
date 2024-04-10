@@ -26,8 +26,8 @@ public class Family implements Serializable {
     @Column(name = "id")
     private Long id;
 
-    @Column(name = "sr_no")
-    private String srNo;
+    @Column(name = "name")
+    private String name;
 
     @Column(name = "mother_maiden_name")
     private String motherMaidenName;
@@ -70,17 +70,17 @@ public class Family implements Serializable {
         this.id = id;
     }
 
-    public String getSrNo() {
-        return this.srNo;
+    public String getName() {
+        return this.name;
     }
 
-    public Family srNo(String srNo) {
-        this.setSrNo(srNo);
+    public Family name(String name) {
+        this.setName(name);
         return this;
     }
 
-    public void setSrNo(String srNo) {
-        this.srNo = srNo;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getMotherMaidenName() {
@@ -216,7 +216,7 @@ public class Family implements Serializable {
     public String toString() {
         return "Family{" +
             "id=" + getId() +
-            ", srNo='" + getSrNo() + "'" +
+            ", name='" + getName() + "'" +
             ", motherMaidenName='" + getMotherMaidenName() + "'" +
             ", marriageDate='" + getMarriageDate() + "'" +
             ", familyPhoto='" + getFamilyPhoto() + "'" +

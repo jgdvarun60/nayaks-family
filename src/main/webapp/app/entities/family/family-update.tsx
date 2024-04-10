@@ -96,7 +96,7 @@ export const FamilyUpdate = () => {
           ) : (
             <ValidatedForm defaultValues={defaultValues()} onSubmit={saveEntity}>
               {!isNew ? <ValidatedField name="id" required readOnly id="family-id" label="ID" validate={{ required: true }} /> : null}
-              <ValidatedField label="Sr No" id="family-srNo" name="srNo" data-cy="srNo" type="text" />
+              <ValidatedField label="Name" id="family-name" name="name" data-cy="name" type="text" />
               <ValidatedField
                 label="Mother Maiden Name"
                 id="family-motherMaidenName"

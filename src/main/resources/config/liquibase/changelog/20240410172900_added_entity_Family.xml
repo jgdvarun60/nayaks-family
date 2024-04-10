@@ -14,7 +14,7 @@
             <column name="id" type="bigint">
                 <constraints primaryKey="true" nullable="false"/>
             </column>
-            <column name="sr_no" type="varchar(255)">
+            <column name="name" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
             <column name="mother_maiden_name" type="varchar(255)">
@@ -57,7 +57,7 @@
                   tableName="family"
                   usePreparedStatements="true">
             <column name="id" type="numeric"/>
-            <column name="sr_no" type="string"/>
+            <column name="name" type="string"/>
             <column name="mother_maiden_name" type="string"/>
             <column name="marriage_date" type="date"/>
             <column name="family_photo" type="blob"/>

@@ -86,8 +86,8 @@ export const Family = () => {
                 <th className="hand" onClick={sort('id')}>
                   ID <FontAwesomeIcon icon={getSortIconByFieldName('id')} />
                 </th>
-                <th className="hand" onClick={sort('srNo')}>
-                  Sr No <FontAwesomeIcon icon={getSortIconByFieldName('srNo')} />
+                <th className="hand" onClick={sort('name')}>
+                  Name <FontAwesomeIcon icon={getSortIconByFieldName('name')} />
                 </th>
                 <th className="hand" onClick={sort('motherMaidenName')}>
                   Mother Maiden Name <FontAwesomeIcon icon={getSortIconByFieldName('motherMaidenName')} />
@@ -115,7 +115,7 @@ export const Family = () => {
                       {family.id}
                     </Button>
                   </td>
-                  <td>{family.srNo}</td>
+                  <td>{family.name}</td>
                   <td>{family.motherMaidenName}</td>
                   <td>{family.marriageDate ? <TextFormat type="date" value={family.marriageDate} format={APP_DATE_FORMAT} /> : null}</td>
                   <td>

@@ -42,8 +42,8 @@ import org.springframework.transaction.annotation.Transactional;
 @WithMockUser
 class FamilyResourceIT {
 
-    private static final String DEFAULT_SR_NO = "AAAAAAAAAA";
-    private static final String UPDATED_SR_NO = "BBBBBBBBBB";
+    private static final String DEFAULT_NAME = "AAAAAAAAAA";
+    private static final String UPDATED_NAME = "BBBBBBBBBB";
 
     private static final String DEFAULT_MOTHER_MAIDEN_NAME = "AAAAAAAAAA";
     private static final String UPDATED_MOTHER_MAIDEN_NAME = "BBBBBBBBBB";
@@ -87,7 +87,7 @@ class FamilyResourceIT {
      */
     public static Family createEntity(EntityManager em) {
         Family family = new Family()
-            .srNo(DEFAULT_SR_NO)
+            .name(DEFAULT_NAME)
             .motherMaidenName(DEFAULT_MOTHER_MAIDEN_NAME)
             .marriageDate(DEFAULT_MARRIAGE_DATE)
             .familyPhoto(DEFAULT_FAMILY_PHOTO)
@@ -103,7 +103,7 @@ class FamilyResourceIT {
      */
     public static Family createUpdatedEntity(EntityManager em) {
         Family family = new Family()
-            .srNo(UPDATED_SR_NO)
+            .name(UPDATED_NAME)
             .motherMaidenName(UPDATED_MOTHER_MAIDEN_NAME)
             .marriageDate(UPDATED_MARRIAGE_DATE)
             .familyPhoto(UPDATED_FAMILY_PHOTO)
@@ -165,7 +165,7 @@ class FamilyResourceIT {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(family.getId().intValue())))
-            .andExpect(jsonPath("$.[*].srNo").value(hasItem(DEFAULT_SR_NO)))
+            .andExpect(jsonPath("$.[*].name").value(hasItem(DEFAULT_NAME)))
             .andExpect(jsonPath("$.[*].motherMaidenName").value(hasItem(DEFAULT_MOTHER_MAIDEN_NAME)))
             .andExpect(jsonPath("$.[*].marriageDate").value(hasItem(DEFAULT_MARRIAGE_DATE.toString())))
             .andExpect(jsonPath("$.[*].familyPhotoContentType").value(hasItem(DEFAULT_FAMILY_PHOTO_CONTENT_TYPE)))
@@ -201,7 +201,7 @@ class FamilyResourceIT {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.id").value(family.getId().intValue()))
-            .andExpect(jsonPath("$.srNo").value(DEFAULT_SR_NO))
+            .andExpect(jsonPath("$.name").value(DEFAULT_NAME))
             .andExpect(jsonPath("$.motherMaidenName").value(DEFAULT_MOTHER_MAIDEN_NAME))
             .andExpect(jsonPath("$.marriageDate").value(DEFAULT_MARRIAGE_DATE.toString()))
             .andExpect(jsonPath("$.familyPhotoContentType").value(DEFAULT_FAMILY_PHOTO_CONTENT_TYPE))
@@ -228,7 +228,7 @@ class FamilyResourceIT {
         // Disconnect from session so that the updates on updatedFamily are not directly saved in db
         em.detach(updatedFamily);
         updatedFamily
-            .srNo(UPDATED_SR_NO)
+            .name(UPDATED_NAME)
             .motherMaidenName(UPDATED_MOTHER_MAIDEN_NAME)
             .marriageDate(UPDATED_MARRIAGE_DATE)
             .familyPhoto(UPDATED_FAMILY_PHOTO)
@@ -309,7 +309,7 @@ class FamilyResourceIT {
         partialUpdatedFamily.setId(family.getId());
 
         partialUpdatedFamily
-            .srNo(UPDATED_SR_NO)
+            .name(UPDATED_NAME)
             .motherMaidenName(UPDATED_MOTHER_MAIDEN_NAME)
             .marriageDate(UPDATED_MARRIAGE_DATE)
             .familyPhoto(UPDATED_FAMILY_PHOTO)
@@ -342,7 +342,7 @@ class FamilyResourceIT {
         partialUpdatedFamily.setId(family.getId());
 
         partialUpdatedFamily
-            .srNo(UPDATED_SR_NO)
+            .name(UPDATED_NAME)
             .motherMaidenName(UPDATED_MOTHER_MAIDEN_NAME)
             .marriageDate(UPDATED_MARRIAGE_DATE)
             .familyPhoto(UPDATED_FAMILY_PHOTO)

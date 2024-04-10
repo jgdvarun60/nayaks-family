@@ -47,7 +47,7 @@ public class FamilyAsserts {
     public static void assertFamilyUpdatableFieldsEquals(Family expected, Family actual) {
         assertThat(expected)
             .as("Verify Family relevant properties")
-            .satisfies(e -> assertThat(e.getSrNo()).as("check srNo").isEqualTo(actual.getSrNo()))
+            .satisfies(e -> assertThat(e.getName()).as("check name").isEqualTo(actual.getName()))
             .satisfies(e -> assertThat(e.getMotherMaidenName()).as("check motherMaidenName").isEqualTo(actual.getMotherMaidenName()))
             .satisfies(e -> assertThat(e.getMarriageDate()).as("check marriageDate").isEqualTo(actual.getMarriageDate()))
             .satisfies(e -> assertThat(e.getFamilyPhoto()).as("check familyPhoto").isEqualTo(actual.getFamilyPhoto()))

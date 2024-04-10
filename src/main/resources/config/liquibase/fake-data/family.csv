@@ -1,4 +1,4 @@
-id;sr_no;mother_maiden_name;marriage_date;family_photo;family_photo_content_type
+id;name;mother_maiden_name;marriage_date;family_photo;family_photo_content_type
 1;furthermore and;hive;2024-04-10T02:04:38;../fake-data/blob/hipster.png;image/png
 2;unveil;creative complex er;2024-04-10T08:32:55;../fake-data/blob/hipster.png;image/png
 3;inasmuch hm;notwithstanding;2024-04-10T07:25:36;../fake-data/blob/hipster.png;image/png

@@ -119,8 +119,8 @@ public class FamilyResource {
         Optional<Family> result = familyRepository
             .findById(family.getId())
             .map(existingFamily -> {
-                if (family.getSrNo() != null) {
-                    existingFamily.setSrNo(family.getSrNo());
+                if (family.getName() != null) {
+                    existingFamily.setName(family.getName());
                 }
                 if (family.getMotherMaidenName() != null) {
                     existingFamily.setMotherMaidenName(family.getMotherMaidenName());

@@ -29,9 +29,9 @@ export const FamilyDetail = () => {
           </dt>
           <dd>{familyEntity.id}</dd>
           <dt>
-            <span id="srNo">Sr No</span>
+            <span id="name">Name</span>
           </dt>
-          <dd>{familyEntity.srNo}</dd>
+          <dd>{familyEntity.name}</dd>
           <dt>
             <span id="motherMaidenName">Mother Maiden Name</span>
           </dt>
