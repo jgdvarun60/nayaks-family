@@ -1,0 +1,33 @@
+enum Gender {
+    MALE, FEMALE
+}
+	
+entity Person {
+	name String
+    gender Gender
+    about String
+    fathersName String
+    dateOfBirth Instant
+    phoneNumber1 String
+    phoneNumber2 String
+    whatsAppNo String
+    email String
+	CurrentLocation	String
+    Photo ImageBlob
+}
+entity Family {
+	srNo String
+	motherMaidenName String    
+    marriageDate Instant
+    FamilyPhoto ImageBlob
+}
+
+relationship ManyToOne {
+	Family{father(name)} to Person
+    Family{mother(name)} to Person
+    
+}
+
+relationship OneToMany {
+    Family{childrens(name)} to Person
+}
