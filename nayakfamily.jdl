@@ -25,9 +25,8 @@ entity Family {
 relationship ManyToOne {
 	Family{father(name)} to Person
     Family{mother(name)} to Person
-    
 }
 
 relationship OneToMany {
-    Family{childrens(name)} to Person
+    Family{childrens(name)} to Person{family(name)}
 }
