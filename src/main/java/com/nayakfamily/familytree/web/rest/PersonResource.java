@@ -169,12 +169,17 @@ public class PersonResource {
     /**
      * {@code GET  /people} : get all the people.
      *
+     * @param eagerload flag to eager load entities from relationships (This is applicable for many-to-many).
      * @return the {@link ResponseEntity} with status {@code 200 (OK)} and the list of people in body.
      */
     @GetMapping("")
-    public List<Person> getAllPeople() {
+    public List<Person> getAllPeople(@RequestParam(name = "eagerload", required = false, defaultValue = "true") boolean eagerload) {
         log.debug("REST request to get all People");
-        return personRepository.findAll();
+        if (eagerload) {
+            return personRepository.findAllWithEagerRelationships();
+        } else {
+            return personRepository.findAll();
+        }
     }
 
     /**
@@ -186,7 +191,7 @@ public class PersonResource {
     @GetMapping("/{id}")
     public ResponseEntity<Person> getPerson(@PathVariable("id") Long id) {
         log.debug("REST request to get Person : {}", id);
-        Optional<Person> person = personRepository.findById(id);
+        Optional<Person> person = personRepository.findOneWithEagerRelationships(id);
         return ResponseUtil.wrapOrNotFound(person);
     }
 

@@ -27,6 +27,7 @@
     {
       "otherEntityField": "name",
       "otherEntityName": "person",
+      "otherEntityRelationshipName": "family",
       "relationshipName": "childrens",
       "relationshipSide": "left",
       "relationshipType": "one-to-many"

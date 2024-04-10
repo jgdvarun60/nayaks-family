@@ -51,9 +51,6 @@ public class FamilyResource {
         if (family.getId() != null) {
             throw new BadRequestAlertException("A new family cannot already have an ID", ENTITY_NAME, "idexists");
         }
-        if (family.getFather() != null) {
-            family.setName(family.getFather().getName());
-        }
         family = familyRepository.save(family);
         return ResponseEntity.created(new URI("/api/families/" + family.getId()))
             .headers(HeaderUtil.createEntityCreationAlert(applicationName, false, ENTITY_NAME, family.getId().toString()))
@@ -84,9 +81,7 @@ public class FamilyResource {
         if (!familyRepository.existsById(id)) {
             throw new BadRequestAlertException("Entity not found", ENTITY_NAME, "idnotfound");
         }
-        if (family.getFather() != null) {
-            family.setName(family.getFather().getName());
-        }
+
         family = familyRepository.save(family);
         return ResponseEntity.ok()
             .headers(HeaderUtil.createEntityUpdateAlert(applicationName, false, ENTITY_NAME, family.getId().toString()))
@@ -140,9 +135,6 @@ public class FamilyResource {
                     existingFamily.setFamilyPhotoContentType(family.getFamilyPhotoContentType());
                 }
 
-                if (existingFamily.getFather() != null) {
-                    existingFamily.setName(existingFamily.getFather().getName());
-                }
                 return existingFamily;
             })
             .map(familyRepository::save);

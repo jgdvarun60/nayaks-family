@@ -158,7 +158,7 @@ export const Person = () => {
                       </div>
                     ) : null}
                   </td>
-                  <td>{person.family ? <Link to={`/family/${person.family.id}`}>{person.family.id}</Link> : ''}</td>
+                  <td>{person.family ? <Link to={`/family/${person.family.id}`}>{person.family.name}</Link> : ''}</td>
                   <td className="text-end">
                     <div className="btn-group flex-btn-group-container">
                       <Button tag={Link} to={`/person/${person.id}`} color="info" size="sm" data-cy="entityDetailsButton">

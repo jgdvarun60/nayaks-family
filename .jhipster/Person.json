@@ -52,6 +52,15 @@
     }
   ],
   "name": "Person",
-  "relationships": [],
+  "relationships": [
+    {
+      "otherEntityField": "name",
+      "otherEntityName": "family",
+      "otherEntityRelationshipName": "childrens",
+      "relationshipName": "family",
+      "relationshipSide": "right",
+      "relationshipType": "many-to-one"
+    }
+  ],
   "searchEngine": "no"
 }

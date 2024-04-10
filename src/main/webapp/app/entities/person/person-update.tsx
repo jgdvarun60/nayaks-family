@@ -132,7 +132,7 @@ export const PersonUpdate = () => {
                 {families
                   ? families.map(otherEntity => (
                       <option value={otherEntity.id} key={otherEntity.id}>
-                        {otherEntity.id}
+                        {otherEntity.name}
                       </option>
                     ))
                   : null}

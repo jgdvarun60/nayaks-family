@@ -86,7 +86,7 @@ export const PersonDetail = () => {
             ) : null}
           </dd>
           <dt>Family</dt>
-          <dd>{personEntity.family ? personEntity.family.id : ''}</dd>
+          <dd>{personEntity.family ? personEntity.family.name : ''}</dd>
         </dl>
         <Button tag={Link} to="/person" replace color="info" data-cy="entityDetailsBackButton">
           <FontAwesomeIcon icon="arrow-left" /> <span className="d-none d-md-inline">Back</span>
