@@ -17,7 +17,7 @@ entity Person {
     Photo ImageBlob
 }
 entity Family {
-	name String
+	name String unique
 	motherMaidenName String
     CurrentLocation	String
     marriageDate Instant

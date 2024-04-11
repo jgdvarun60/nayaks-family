@@ -130,18 +130,18 @@ export const PersonUpdate = () => {
                     type="text"
                   />
                   <ValidatedBlobField label="Photo" id="person-photo" name="photo" data-cy="photo" isImage accept="image/*" />
+                  <ValidatedField id="person-family" name="family" data-cy="family" label="Family" type="select">
+                    <option value="" key="0" />
+                    {families
+                      ? families.map(otherEntity => (
+                          <option value={otherEntity.id} key={otherEntity.id}>
+                            {otherEntity.name}
+                          </option>
+                        ))
+                      : null}
+                  </ValidatedField>
                 </>
               )}
-              <ValidatedField id="person-family" name="family" data-cy="family" label="Family" type="select">
-                <option value="" key="0" />
-                {families
-                  ? families.map(otherEntity => (
-                      <option value={otherEntity.id} key={otherEntity.id}>
-                        {otherEntity.name}
-                      </option>
-                    ))
-                  : null}
-              </ValidatedField>
               <Button tag={Link} id="cancel-save" data-cy="entityCreateCancelButton" to="/person" replace color="info">
                 <FontAwesomeIcon icon="arrow-left" />
                 &nbsp;

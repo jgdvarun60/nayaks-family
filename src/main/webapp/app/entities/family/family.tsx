@@ -86,6 +86,9 @@ export const Family = () => {
                 <th className="hand" onClick={sort('id')}>
                   ID <FontAwesomeIcon icon={getSortIconByFieldName('id')} />
                 </th>
+                <th className="hand" onClick={sort('name')}>
+                  Name <FontAwesomeIcon icon={getSortIconByFieldName('name')} />
+                </th>
                 <th className="hand" onClick={sort('familyPhoto')}>
                   Family Photo <FontAwesomeIcon icon={getSortIconByFieldName('familyPhoto')} />
                 </th>
@@ -109,6 +112,7 @@ export const Family = () => {
                       {family.id}
                     </Button>
                   </td>
+                  <td>{family.name}</td>
                   <td>
                     {family.familyPhoto ? (
                       <div>

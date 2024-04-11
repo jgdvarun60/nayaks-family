@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import { Button, Row, Col, FormText } from 'reactstrap';
-import { isNumber, ValidatedField, ValidatedForm, ValidatedBlobField } from 'react-jhipster';
+import { isNumber, ValidatedField, ValidatedForm, ValidatedBlobField, logDebug } from 'react-jhipster';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import { convertDateTimeFromServer, convertDateTimeToServer, displayDefaultDateTime } from 'app/shared/util/date-utils';
@@ -61,7 +61,6 @@ export const FamilyUpdate = () => {
       father: people.find(it => it.id.toString() === values.father?.toString()),
       mother: people.find(it => it.id.toString() === values.mother?.toString()),
     };
-
     if (isNew) {
       dispatch(createEntity(entity));
     } else {
