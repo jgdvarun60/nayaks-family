@@ -5,6 +5,7 @@ enum Gender {
 entity Person {
 	name String
     gender Gender
+    married Boolean
     about String
     fathersName String
     dateOfBirth Instant
@@ -17,7 +18,8 @@ entity Person {
 }
 entity Family {
 	name String
-	motherMaidenName String    
+	motherMaidenName String
+    CurrentLocation	String
     marriageDate Instant
     FamilyPhoto ImageBlob
 }
