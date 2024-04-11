@@ -57,7 +57,7 @@ export const FamilyUpdate = () => {
     const entity = {
       ...familyEntity,
       ...values,
-      name: values.father.name,
+      name: people.find(it => it.id.toString() === values.father?.toString()).name,
       father: people.find(it => it.id.toString() === values.father?.toString()),
       mother: people.find(it => it.id.toString() === values.mother?.toString()),
     };
