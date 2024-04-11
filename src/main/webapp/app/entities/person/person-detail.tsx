@@ -74,25 +74,25 @@ export const PersonDetail = () => {
                 <span id="currentLocation">Current Location</span>
               </dt>
               <dd>{personEntity.currentLocation}</dd>
+              <dt>
+                <span id="photo">Photo</span>
+              </dt>
+              <dd>
+                {personEntity.photo ? (
+                  <div>
+                    {personEntity.photoContentType ? (
+                      <a onClick={openFile(personEntity.photoContentType, personEntity.photo)}>
+                        <img src={`data:${personEntity.photoContentType};base64,${personEntity.photo}`} style={{ maxHeight: '30px' }} />
+                      </a>
+                    ) : null}
+                    <span>
+                      {personEntity.photoContentType}, {byteSize(personEntity.photo)}
+                    </span>
+                  </div>
+                ) : null}
+              </dd>
             </>
           )}
-          <dt>
-            <span id="photo">Photo</span>
-          </dt>
-          <dd>
-            {personEntity.photo ? (
-              <div>
-                {personEntity.photoContentType ? (
-                  <a onClick={openFile(personEntity.photoContentType, personEntity.photo)}>
-                    <img src={`data:${personEntity.photoContentType};base64,${personEntity.photo}`} style={{ maxHeight: '30px' }} />
-                  </a>
-                ) : null}
-                <span>
-                  {personEntity.photoContentType}, {byteSize(personEntity.photo)}
-                </span>
-              </div>
-            ) : null}
-          </dd>
           <dt>Family</dt>
           <dd>{personEntity.family ? personEntity.family.name : ''}</dd>
         </dl>
