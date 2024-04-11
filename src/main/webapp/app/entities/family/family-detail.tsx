@@ -4,7 +4,6 @@ import { Button, Row, Col } from 'reactstrap';
 import { openFile, byteSize, TextFormat } from 'react-jhipster';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-import ErrorBoundary from 'app/shared/error/error-boundary';
 import { APP_DATE_FORMAT, APP_LOCAL_DATE_FORMAT } from 'app/config/constants';
 import { useAppDispatch, useAppSelector } from 'app/config/store';
 
@@ -40,37 +39,34 @@ export const FamilyDetail = () => {
     <Row>
       <Col md="8">
         <h2 data-cy="familyDetailsHeading">Family</h2>
-        <ErrorBoundary>
-          <table style={{ width: '35%', tableLayout: 'fixed', borderCollapse: 'collapse' }}>
-            <tr>
-              <td style={{ textAlign: 'center', verticalAlign: 'middle', border: '1px solid black' }}>
-                <div style={{ textAlign: 'left' }}>
-                  🏠: {familyEntity.currentLocation}
-                  <br />
-                  👨: {familyEntity.father.name} <br />
-                  🎂: {familyEntity.father.dateOfBirth} <br />
-                  📲: {familyEntity.father.phoneNumber1} <br />
-                  📱: {familyEntity.father.phoneNumber1} <br />
-                  ✆: {familyEntity.father.phoneNumber1} <br />
-                  👧: {familyEntity.mother.name} <br />
-                  👩: {familyEntity.motherMaidenName} <br />
-                  🎂: {familyEntity.mother.dateOfBirth} <br />
-                  📲: {familyEntity.mother.phoneNumber1} <br />
-                  📱: {familyEntity.mother.phoneNumber1} <br />
-                  ✆: {familyEntity.mother.phoneNumber1} <br />
-                  💏: {familyEntity.marriageDate}
-                </div>
-              </td>
-              <td style={{ textAlign: 'center', verticalAlign: 'middle', border: '1px solid black' }}>
-                <img
-                  src="https://ucarecdn.com/4a3425bf-8368-4a88-9ef1-b9c1278e0377/-/resize/700/"
-                  alt="Image description"
-                  style={{ width: '100%', height: 'auto', maxWidth: '300px' }}
-                />
-              </td>
-            </tr>
-          </table>
-        </ErrorBoundary>
+        <table style={{ width: '35%', tableLayout: 'fixed', borderCollapse: 'collapse' }}>
+          <tr>
+            <td style={{ textAlign: 'center', verticalAlign: 'middle', border: '1px solid black' }}>
+              <div style={{ textAlign: 'left' }}>
+                🏠: {familyEntity.currentLocation}
+                <br />
+                👨: {familyEntity.father ? familyEntity.father.name : ''} <br />
+                🎂: {familyEntity.father ? familyEntity.father.dateOfBirth : ''} <br />
+                📲: {familyEntity.father ? familyEntity.father.phoneNumber1 : ''} <br />
+                📱: {familyEntity.father ? familyEntity.father.phoneNumber1 : ''} <br />
+                ✆: {familyEntity.father ? familyEntity.father.phoneNumber1 : ''} <br />
+                👧: {familyEntity.father ? familyEntity.mother.name : ''} <br />
+                👩: {familyEntity.motherMaidenName} <br />
+                🎂: {familyEntity.father ? familyEntity.mother.dateOfBirth : ''} <br />
+                📲: {familyEntity.father ? familyEntity.mother.phoneNumber1 : ''} <br />
+                📱: {familyEntity.father ? familyEntity.mother.phoneNumber1 : ''} <br />
+                ✆: {familyEntity.father ? familyEntity.mother.phoneNumber1 : ''} <br />
+                💏: {familyEntity.marriageDate}
+              </div>
+            </td>
+            <td style={{ textAlign: 'center', verticalAlign: 'middle', border: '1px solid black' }}>
+              <img
+                src={`data:${familyEntity.familyPhotoContentType};base64,${familyEntity.familyPhoto}`}
+                style={{ width: '100%', height: 'auto', maxWidth: '300px' }}
+              />
+            </td>
+          </tr>
+        </table>
         <br />
         <br />
         <dl className="jh-entity-details">
