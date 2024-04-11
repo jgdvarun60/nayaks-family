@@ -49,7 +49,9 @@ export const FamilyDetail = () => {
             {familyEntity.familyPhoto ? (
               <div>
                 {familyEntity.familyPhotoContentType ? (
-                  <a onClick={openFile(familyEntity.familyPhotoContentType, familyEntity.familyPhoto)}></a>
+                  <a onClick={openFile(familyEntity.familyPhotoContentType, familyEntity.familyPhoto)}>
+                    <img src={`data:${familyEntity.photoContentType};base64,${familyEntity.photo}`} style={{ maxHeight: '30px' }} />
+                  </a>
                 ) : null}
                 <span>
                   {familyEntity.familyPhotoContentType}, {byteSize(familyEntity.familyPhoto)}
