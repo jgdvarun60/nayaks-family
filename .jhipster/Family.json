@@ -6,7 +6,8 @@
   "fields": [
     {
       "fieldName": "name",
-      "fieldType": "String"
+      "fieldType": "String",
+      "fieldValidateRules": ["unique"]
     },
     {
       "fieldName": "motherMaidenName",
