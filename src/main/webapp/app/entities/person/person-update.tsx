@@ -29,6 +29,8 @@ export const PersonUpdate = () => {
   const updateSuccess = useAppSelector(state => state.person.updateSuccess);
   const genderValues = Object.keys(Gender);
 
+  const [isChecked, setIsChecked] = useState(personEntity.married);
+
   const handleClose = () => {
     navigate('/person');
   };
@@ -48,6 +50,10 @@ export const PersonUpdate = () => {
       handleClose();
     }
   }, [updateSuccess]);
+
+  const handleCheckboxChange = event => {
+    setIsChecked(event.target.checked);
+  };
 
   // eslint-disable-next-line complexity
   const saveEntity = values => {
@@ -105,7 +111,16 @@ export const PersonUpdate = () => {
                   </option>
                 ))}
               </ValidatedField>
-              <ValidatedField label="Married" id="person-married" name="married" data-cy="married" check type="checkbox" />
+              <ValidatedField
+                label="Married"
+                id="person-married"
+                name="married"
+                data-cy="married"
+                check
+                type="checkbox"
+                checked={isChecked}
+                onChange={handleCheckboxChange}
+              />
               <ValidatedField label="About" id="person-about" name="about" data-cy="about" type="text" />
               <ValidatedField label="Fathers Name" id="person-fathersName" name="fathersName" data-cy="fathersName" type="text" />
               <ValidatedField
@@ -120,7 +135,7 @@ export const PersonUpdate = () => {
               <ValidatedField label="Phone Number 2" id="person-phoneNumber2" name="phoneNumber2" data-cy="phoneNumber2" type="text" />
               <ValidatedField label="Whats App No" id="person-whatsAppNo" name="whatsAppNo" data-cy="whatsAppNo" type="text" />
               <ValidatedField label="Email" id="person-email" name="email" data-cy="email" type="text" />
-              {personEntity.married ? null : (
+              {isChecked ? null : (
                 <>
                   <ValidatedField
                     label="Current Location"
