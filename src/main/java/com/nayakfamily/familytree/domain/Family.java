@@ -32,6 +32,9 @@ public class Family implements Serializable {
     @Column(name = "mother_maiden_name")
     private String motherMaidenName;
 
+    @Column(name = "current_location")
+    private String currentLocation;
+
     @Column(name = "marriage_date")
     private Instant marriageDate;
 
@@ -94,6 +97,19 @@ public class Family implements Serializable {
 
     public void setMotherMaidenName(String motherMaidenName) {
         this.motherMaidenName = motherMaidenName;
+    }
+
+    public String getCurrentLocation() {
+        return this.currentLocation;
+    }
+
+    public Family currentLocation(String currentLocation) {
+        this.setCurrentLocation(currentLocation);
+        return this;
+    }
+
+    public void setCurrentLocation(String currentLocation) {
+        this.currentLocation = currentLocation;
     }
 
     public Instant getMarriageDate() {
@@ -218,6 +234,7 @@ public class Family implements Serializable {
             "id=" + getId() +
             ", name='" + getName() + "'" +
             ", motherMaidenName='" + getMotherMaidenName() + "'" +
+            ", currentLocation='" + getCurrentLocation() + "'" +
             ", marriageDate='" + getMarriageDate() + "'" +
             ", familyPhoto='" + getFamilyPhoto() + "'" +
             ", familyPhotoContentType='" + getFamilyPhotoContentType() + "'" +

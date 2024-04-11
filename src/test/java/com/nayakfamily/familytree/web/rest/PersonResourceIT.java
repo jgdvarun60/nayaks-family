@@ -49,6 +49,9 @@ class PersonResourceIT {
     private static final Gender DEFAULT_GENDER = Gender.MALE;
     private static final Gender UPDATED_GENDER = Gender.FEMALE;
 
+    private static final Boolean DEFAULT_MARRIED = false;
+    private static final Boolean UPDATED_MARRIED = true;
+
     private static final String DEFAULT_ABOUT = "AAAAAAAAAA";
     private static final String UPDATED_ABOUT = "BBBBBBBBBB";
 
@@ -111,6 +114,7 @@ class PersonResourceIT {
         Person person = new Person()
             .name(DEFAULT_NAME)
             .gender(DEFAULT_GENDER)
+            .married(DEFAULT_MARRIED)
             .about(DEFAULT_ABOUT)
             .fathersName(DEFAULT_FATHERS_NAME)
             .dateOfBirth(DEFAULT_DATE_OF_BIRTH)
@@ -134,6 +138,7 @@ class PersonResourceIT {
         Person person = new Person()
             .name(UPDATED_NAME)
             .gender(UPDATED_GENDER)
+            .married(UPDATED_MARRIED)
             .about(UPDATED_ABOUT)
             .fathersName(UPDATED_FATHERS_NAME)
             .dateOfBirth(UPDATED_DATE_OF_BIRTH)
@@ -203,6 +208,7 @@ class PersonResourceIT {
             .andExpect(jsonPath("$.[*].id").value(hasItem(person.getId().intValue())))
             .andExpect(jsonPath("$.[*].name").value(hasItem(DEFAULT_NAME)))
             .andExpect(jsonPath("$.[*].gender").value(hasItem(DEFAULT_GENDER.toString())))
+            .andExpect(jsonPath("$.[*].married").value(hasItem(DEFAULT_MARRIED.booleanValue())))
             .andExpect(jsonPath("$.[*].about").value(hasItem(DEFAULT_ABOUT)))
             .andExpect(jsonPath("$.[*].fathersName").value(hasItem(DEFAULT_FATHERS_NAME)))
             .andExpect(jsonPath("$.[*].dateOfBirth").value(hasItem(DEFAULT_DATE_OF_BIRTH.toString())))
@@ -246,6 +252,7 @@ class PersonResourceIT {
             .andExpect(jsonPath("$.id").value(person.getId().intValue()))
             .andExpect(jsonPath("$.name").value(DEFAULT_NAME))
             .andExpect(jsonPath("$.gender").value(DEFAULT_GENDER.toString()))
+            .andExpect(jsonPath("$.married").value(DEFAULT_MARRIED.booleanValue()))
             .andExpect(jsonPath("$.about").value(DEFAULT_ABOUT))
             .andExpect(jsonPath("$.fathersName").value(DEFAULT_FATHERS_NAME))
             .andExpect(jsonPath("$.dateOfBirth").value(DEFAULT_DATE_OF_BIRTH.toString()))
@@ -280,6 +287,7 @@ class PersonResourceIT {
         updatedPerson
             .name(UPDATED_NAME)
             .gender(UPDATED_GENDER)
+            .married(UPDATED_MARRIED)
             .about(UPDATED_ABOUT)
             .fathersName(UPDATED_FATHERS_NAME)
             .dateOfBirth(UPDATED_DATE_OF_BIRTH)
@@ -366,11 +374,10 @@ class PersonResourceIT {
         partialUpdatedPerson.setId(person.getId());
 
         partialUpdatedPerson
-            .fathersName(UPDATED_FATHERS_NAME)
-            .phoneNumber1(UPDATED_PHONE_NUMBER_1)
-            .email(UPDATED_EMAIL)
-            .photo(UPDATED_PHOTO)
-            .photoContentType(UPDATED_PHOTO_CONTENT_TYPE);
+            .about(UPDATED_ABOUT)
+            .dateOfBirth(UPDATED_DATE_OF_BIRTH)
+            .whatsAppNo(UPDATED_WHATS_APP_NO)
+            .currentLocation(UPDATED_CURRENT_LOCATION);
 
         restPersonMockMvc
             .perform(
@@ -401,6 +408,7 @@ class PersonResourceIT {
         partialUpdatedPerson
             .name(UPDATED_NAME)
             .gender(UPDATED_GENDER)
+            .married(UPDATED_MARRIED)
             .about(UPDATED_ABOUT)
             .fathersName(UPDATED_FATHERS_NAME)
             .dateOfBirth(UPDATED_DATE_OF_BIRTH)

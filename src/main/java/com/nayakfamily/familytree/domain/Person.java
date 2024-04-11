@@ -32,6 +32,9 @@ public class Person implements Serializable {
     @Column(name = "gender")
     private Gender gender;
 
+    @Column(name = "married")
+    private Boolean married;
+
     @Column(name = "about")
     private String about;
 
@@ -106,6 +109,19 @@ public class Person implements Serializable {
 
     public void setGender(Gender gender) {
         this.gender = gender;
+    }
+
+    public Boolean getMarried() {
+        return this.married;
+    }
+
+    public Person married(Boolean married) {
+        this.setMarried(married);
+        return this;
+    }
+
+    public void setMarried(Boolean married) {
+        this.married = married;
     }
 
     public String getAbout() {
@@ -277,6 +293,7 @@ public class Person implements Serializable {
             "id=" + getId() +
             ", name='" + getName() + "'" +
             ", gender='" + getGender() + "'" +
+            ", married='" + getMarried() + "'" +
             ", about='" + getAbout() + "'" +
             ", fathersName='" + getFathersName() + "'" +
             ", dateOfBirth='" + getDateOfBirth() + "'" +

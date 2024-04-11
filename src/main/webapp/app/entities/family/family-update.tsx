@@ -57,6 +57,7 @@ export const FamilyUpdate = () => {
     const entity = {
       ...familyEntity,
       ...values,
+      name: values.father.name,
       father: people.find(it => it.id.toString() === values.father?.toString()),
       mother: people.find(it => it.id.toString() === values.mother?.toString()),
     };
@@ -102,6 +103,13 @@ export const FamilyUpdate = () => {
                 id="family-motherMaidenName"
                 name="motherMaidenName"
                 data-cy="motherMaidenName"
+                type="text"
+              />
+              <ValidatedField
+                label="Current Location"
+                id="family-currentLocation"
+                name="currentLocation"
+                data-cy="currentLocation"
                 type="text"
               />
               <ValidatedField

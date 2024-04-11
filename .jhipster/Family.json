@@ -13,6 +13,10 @@
       "fieldType": "String"
     },
     {
+      "fieldName": "currentLocation",
+      "fieldType": "String"
+    },
+    {
       "fieldName": "marriageDate",
       "fieldType": "Instant"
     },

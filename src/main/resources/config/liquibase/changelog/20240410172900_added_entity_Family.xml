@@ -20,6 +20,9 @@
             <column name="mother_maiden_name" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
+            <column name="current_location" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
             <column name="marriage_date" type="${datetimeType}">
                 <constraints nullable="true" />
             </column>
@@ -59,6 +62,7 @@
             <column name="id" type="numeric"/>
             <column name="name" type="string"/>
             <column name="mother_maiden_name" type="string"/>
+            <column name="current_location" type="string"/>
             <column name="marriage_date" type="date"/>
             <column name="family_photo" type="blob"/>
             <column name="family_photo_content_type" type="string"/>

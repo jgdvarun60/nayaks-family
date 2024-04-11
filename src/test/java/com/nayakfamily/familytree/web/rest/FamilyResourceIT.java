@@ -48,6 +48,9 @@ class FamilyResourceIT {
     private static final String DEFAULT_MOTHER_MAIDEN_NAME = "AAAAAAAAAA";
     private static final String UPDATED_MOTHER_MAIDEN_NAME = "BBBBBBBBBB";
 
+    private static final String DEFAULT_CURRENT_LOCATION = "AAAAAAAAAA";
+    private static final String UPDATED_CURRENT_LOCATION = "BBBBBBBBBB";
+
     private static final Instant DEFAULT_MARRIAGE_DATE = Instant.ofEpochMilli(0L);
     private static final Instant UPDATED_MARRIAGE_DATE = Instant.now().truncatedTo(ChronoUnit.MILLIS);
 
@@ -89,6 +92,7 @@ class FamilyResourceIT {
         Family family = new Family()
             .name(DEFAULT_NAME)
             .motherMaidenName(DEFAULT_MOTHER_MAIDEN_NAME)
+            .currentLocation(DEFAULT_CURRENT_LOCATION)
             .marriageDate(DEFAULT_MARRIAGE_DATE)
             .familyPhoto(DEFAULT_FAMILY_PHOTO)
             .familyPhotoContentType(DEFAULT_FAMILY_PHOTO_CONTENT_TYPE);
@@ -105,6 +109,7 @@ class FamilyResourceIT {
         Family family = new Family()
             .name(UPDATED_NAME)
             .motherMaidenName(UPDATED_MOTHER_MAIDEN_NAME)
+            .currentLocation(UPDATED_CURRENT_LOCATION)
             .marriageDate(UPDATED_MARRIAGE_DATE)
             .familyPhoto(UPDATED_FAMILY_PHOTO)
             .familyPhotoContentType(UPDATED_FAMILY_PHOTO_CONTENT_TYPE);
@@ -167,6 +172,7 @@ class FamilyResourceIT {
             .andExpect(jsonPath("$.[*].id").value(hasItem(family.getId().intValue())))
             .andExpect(jsonPath("$.[*].name").value(hasItem(DEFAULT_NAME)))
             .andExpect(jsonPath("$.[*].motherMaidenName").value(hasItem(DEFAULT_MOTHER_MAIDEN_NAME)))
+            .andExpect(jsonPath("$.[*].currentLocation").value(hasItem(DEFAULT_CURRENT_LOCATION)))
             .andExpect(jsonPath("$.[*].marriageDate").value(hasItem(DEFAULT_MARRIAGE_DATE.toString())))
             .andExpect(jsonPath("$.[*].familyPhotoContentType").value(hasItem(DEFAULT_FAMILY_PHOTO_CONTENT_TYPE)))
             .andExpect(jsonPath("$.[*].familyPhoto").value(hasItem(Base64.getEncoder().encodeToString(DEFAULT_FAMILY_PHOTO))));
@@ -203,6 +209,7 @@ class FamilyResourceIT {
             .andExpect(jsonPath("$.id").value(family.getId().intValue()))
             .andExpect(jsonPath("$.name").value(DEFAULT_NAME))
             .andExpect(jsonPath("$.motherMaidenName").value(DEFAULT_MOTHER_MAIDEN_NAME))
+            .andExpect(jsonPath("$.currentLocation").value(DEFAULT_CURRENT_LOCATION))
             .andExpect(jsonPath("$.marriageDate").value(DEFAULT_MARRIAGE_DATE.toString()))
             .andExpect(jsonPath("$.familyPhotoContentType").value(DEFAULT_FAMILY_PHOTO_CONTENT_TYPE))
             .andExpect(jsonPath("$.familyPhoto").value(Base64.getEncoder().encodeToString(DEFAULT_FAMILY_PHOTO)));
@@ -230,6 +237,7 @@ class FamilyResourceIT {
         updatedFamily
             .name(UPDATED_NAME)
             .motherMaidenName(UPDATED_MOTHER_MAIDEN_NAME)
+            .currentLocation(UPDATED_CURRENT_LOCATION)
             .marriageDate(UPDATED_MARRIAGE_DATE)
             .familyPhoto(UPDATED_FAMILY_PHOTO)
             .familyPhotoContentType(UPDATED_FAMILY_PHOTO_CONTENT_TYPE);
@@ -311,9 +319,8 @@ class FamilyResourceIT {
         partialUpdatedFamily
             .name(UPDATED_NAME)
             .motherMaidenName(UPDATED_MOTHER_MAIDEN_NAME)
-            .marriageDate(UPDATED_MARRIAGE_DATE)
-            .familyPhoto(UPDATED_FAMILY_PHOTO)
-            .familyPhotoContentType(UPDATED_FAMILY_PHOTO_CONTENT_TYPE);
+            .currentLocation(UPDATED_CURRENT_LOCATION)
+            .marriageDate(UPDATED_MARRIAGE_DATE);
 
         restFamilyMockMvc
             .perform(
@@ -344,6 +351,7 @@ class FamilyResourceIT {
         partialUpdatedFamily
             .name(UPDATED_NAME)
             .motherMaidenName(UPDATED_MOTHER_MAIDEN_NAME)
+            .currentLocation(UPDATED_CURRENT_LOCATION)
             .marriageDate(UPDATED_MARRIAGE_DATE)
             .familyPhoto(UPDATED_FAMILY_PHOTO)
             .familyPhotoContentType(UPDATED_FAMILY_PHOTO_CONTENT_TYPE);

@@ -37,6 +37,10 @@ export const PersonDetail = () => {
           </dt>
           <dd>{personEntity.gender}</dd>
           <dt>
+            <span id="married">Married</span>
+          </dt>
+          <dd>{personEntity.married ? 'true' : 'false'}</dd>
+          <dt>
             <span id="about">About</span>
           </dt>
           <dd>{personEntity.about}</dd>
@@ -64,10 +68,14 @@ export const PersonDetail = () => {
             <span id="email">Email</span>
           </dt>
           <dd>{personEntity.email}</dd>
-          <dt>
-            <span id="currentLocation">Current Location</span>
-          </dt>
-          <dd>{personEntity.currentLocation}</dd>
+          {personEntity.married ? null : (
+            <>
+              <dt>
+                <span id="currentLocation">Current Location</span>
+              </dt>
+              <dd>{personEntity.currentLocation}</dd>
+            </>
+          )}
           <dt>
             <span id="photo">Photo</span>
           </dt>

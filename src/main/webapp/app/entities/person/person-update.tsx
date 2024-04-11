@@ -105,6 +105,9 @@ export const PersonUpdate = () => {
                   </option>
                 ))}
               </ValidatedField>
+              {personEntity.married ? null : (
+                <ValidatedField label="Married" id="person-married" name="married" data-cy="married" check type="checkbox" />
+              )}
               <ValidatedField label="About" id="person-about" name="about" data-cy="about" type="text" />
               <ValidatedField label="Fathers Name" id="person-fathersName" name="fathersName" data-cy="fathersName" type="text" />
               <ValidatedField

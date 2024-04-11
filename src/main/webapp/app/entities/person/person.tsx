@@ -92,6 +92,9 @@ export const Person = () => {
                 <th className="hand" onClick={sort('gender')}>
                   Gender <FontAwesomeIcon icon={getSortIconByFieldName('gender')} />
                 </th>
+                <th className="hand" onClick={sort('married')}>
+                  Married <FontAwesomeIcon icon={getSortIconByFieldName('married')} />
+                </th>
                 <th className="hand" onClick={sort('about')}>
                   About <FontAwesomeIcon icon={getSortIconByFieldName('about')} />
                 </th>
@@ -135,6 +138,7 @@ export const Person = () => {
                   </td>
                   <td>{person.name}</td>
                   <td>{person.gender}</td>
+                  <td>{person.married ? 'true' : 'false'}</td>
                   <td>{person.about}</td>
                   <td>{person.fathersName}</td>
                   <td>{person.dateOfBirth ? <TextFormat type="date" value={person.dateOfBirth} format={APP_DATE_FORMAT} /> : null}</td>

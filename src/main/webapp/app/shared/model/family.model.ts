@@ -5,6 +5,7 @@ export interface IFamily {
   id?: number;
   name?: string | null;
   motherMaidenName?: string | null;
+  currentLocation?: string | null;
   marriageDate?: dayjs.Dayjs | null;
   familyPhotoContentType?: string | null;
   familyPhoto?: string | null;

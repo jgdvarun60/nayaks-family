@@ -49,6 +49,7 @@ public class PersonAsserts {
             .as("Verify Person relevant properties")
             .satisfies(e -> assertThat(e.getName()).as("check name").isEqualTo(actual.getName()))
             .satisfies(e -> assertThat(e.getGender()).as("check gender").isEqualTo(actual.getGender()))
+            .satisfies(e -> assertThat(e.getMarried()).as("check married").isEqualTo(actual.getMarried()))
             .satisfies(e -> assertThat(e.getAbout()).as("check about").isEqualTo(actual.getAbout()))
             .satisfies(e -> assertThat(e.getFathersName()).as("check fathersName").isEqualTo(actual.getFathersName()))
             .satisfies(e -> assertThat(e.getDateOfBirth()).as("check dateOfBirth").isEqualTo(actual.getDateOfBirth()))

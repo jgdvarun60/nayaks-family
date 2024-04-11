@@ -6,6 +6,7 @@ export interface IPerson {
   id?: number;
   name?: string | null;
   gender?: keyof typeof Gender | null;
+  married?: boolean | null;
   about?: string | null;
   fathersName?: string | null;
   dateOfBirth?: dayjs.Dayjs | null;
@@ -19,4 +20,6 @@ export interface IPerson {
   family?: IFamily | null;
 }
 
-export const defaultValue: Readonly<IPerson> = {};
+export const defaultValue: Readonly<IPerson> = {
+  married: false,
+};

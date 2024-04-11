@@ -125,6 +125,9 @@ public class PersonResource {
                 if (person.getGender() != null) {
                     existingPerson.setGender(person.getGender());
                 }
+                if (person.getMarried() != null) {
+                    existingPerson.setMarried(person.getMarried());
+                }
                 if (person.getAbout() != null) {
                     existingPerson.setAbout(person.getAbout());
                 }

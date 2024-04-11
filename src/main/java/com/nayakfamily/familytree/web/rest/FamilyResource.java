@@ -125,6 +125,9 @@ public class FamilyResource {
                 if (family.getMotherMaidenName() != null) {
                     existingFamily.setMotherMaidenName(family.getMotherMaidenName());
                 }
+                if (family.getCurrentLocation() != null) {
+                    existingFamily.setCurrentLocation(family.getCurrentLocation());
+                }
                 if (family.getMarriageDate() != null) {
                     existingFamily.setMarriageDate(family.getMarriageDate());
                 }

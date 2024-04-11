@@ -20,6 +20,9 @@
             <column name="gender" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
+            <column name="married" type="boolean">
+                <constraints nullable="true" />
+            </column>
             <column name="about" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
@@ -77,6 +80,7 @@
             <column name="id" type="numeric"/>
             <column name="name" type="string"/>
             <column name="gender" type="string"/>
+            <column name="married" type="boolean"/>
             <column name="about" type="string"/>
             <column name="fathers_name" type="string"/>
             <column name="date_of_birth" type="date"/>

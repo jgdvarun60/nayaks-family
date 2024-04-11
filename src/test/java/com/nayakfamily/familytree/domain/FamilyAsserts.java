@@ -49,6 +49,7 @@ public class FamilyAsserts {
             .as("Verify Family relevant properties")
             .satisfies(e -> assertThat(e.getName()).as("check name").isEqualTo(actual.getName()))
             .satisfies(e -> assertThat(e.getMotherMaidenName()).as("check motherMaidenName").isEqualTo(actual.getMotherMaidenName()))
+            .satisfies(e -> assertThat(e.getCurrentLocation()).as("check currentLocation").isEqualTo(actual.getCurrentLocation()))
             .satisfies(e -> assertThat(e.getMarriageDate()).as("check marriageDate").isEqualTo(actual.getMarriageDate()))
             .satisfies(e -> assertThat(e.getFamilyPhoto()).as("check familyPhoto").isEqualTo(actual.getFamilyPhoto()))
             .satisfies(
